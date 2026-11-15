@@ -140,7 +140,8 @@ fetch("./co2_data.json")
   color: 0xffffff,
   transparent: true,
   opacity: 0.35,
-  depthWrite: false
+  depthWrite: false,
+side: THREE.DoubleSide
 });
   const mesh=new THREE.InstancedMesh(geometry,material,nx*ny*nz);
 
