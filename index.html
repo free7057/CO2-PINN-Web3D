@@ -135,7 +135,7 @@ fetch("./co2_data.json")
   const values=data.sg.flat(2);
   const min=Math.min(...values), max=Math.max(...values);
 
-  const geometry=new THREE.BoxGeometry(0.82,0.82,0.82);
+  const geometry=new THREE.BoxGeometry(0.98,0.98,0.98);
   const material = new THREE.MeshBasicMaterial({
   color: 0xffffff,
   transparent: true,
