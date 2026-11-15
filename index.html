@@ -91,7 +91,9 @@ const controls = new OrbitControls(camera,renderer.domElement);
 controls.enableDamping = true;
 
 scene.add(new THREE.AmbientLight(0xffffff,2));
-
+// XYZ 三維座標軸
+const axesHelper = new THREE.AxesHelper(25);
+scene.add(axesHelper);
 fetch("./co2_data.json")
 .then(r => {
   if (!r.ok) throw new Error("JSON 載入失敗");
