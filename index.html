@@ -160,7 +160,15 @@ fetch("./co2_data.json")
   mesh.instanceMatrix.needsUpdate=true;
   mesh.instanceColor.needsUpdate=true;
   scene.add(mesh);
+// CO₂ 注入井（示意位置）
+const wellGeometry = new THREE.CylinderGeometry(0.35, 0.35, 14, 24);
+const wellMaterial = new THREE.MeshBasicMaterial({
+  color: 0xff3333
+});
 
+const injectionWell = new THREE.Mesh(wellGeometry, wellMaterial);
+injectionWell.position.set(-2, 2, 0);
+scene.add(injectionWell);
   document.getElementById("info").textContent =
     `第 ${data.day} 天｜${index} 格｜Sg ${min.toFixed(6)} ~ ${max.toFixed(6)}`;
 })
