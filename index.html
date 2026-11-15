@@ -136,7 +136,12 @@ fetch("./co2_data.json")
   const min=Math.min(...values), max=Math.max(...values);
 
   const geometry=new THREE.BoxGeometry(0.82,0.82,0.82);
-  const material=new THREE.MeshBasicMaterial({color:0xffffff});
+  const material = new THREE.MeshBasicMaterial({
+  color: 0xffffff,
+  transparent: true,
+  opacity: 0.35,
+  depthWrite: false
+});
   const mesh=new THREE.InstancedMesh(geometry,material,nx*ny*nz);
 
   const dummy=new THREE.Object3D();
