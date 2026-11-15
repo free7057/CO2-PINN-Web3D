@@ -169,7 +169,10 @@ side: THREE.DoubleSide
 // CO₂ 注入井（示意位置）
 const wellGeometry = new THREE.CylinderGeometry(0.35, 0.35, 14, 24);
 const wellMaterial = new THREE.MeshBasicMaterial({
-  color: 0xff3333
+  color: 0xff3333,
+  depthTest: false,
+  depthWrite: false
+});
 });
 
 const injectionWell = new THREE.Mesh(wellGeometry, wellMaterial);
