@@ -95,6 +95,36 @@ scene.add(new THREE.AmbientLight(0xffffff,2));
 const axesHelper = new THREE.AxesHelper(12);
 axesHelper.position.set(-15, -8, -10);
 scene.add(axesHelper);
+  // 建立 XYZ 座標軸文字標籤
+function createAxisLabel(text, color, x, y, z) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 256;
+  canvas.height = 256;
+
+  const ctx = canvas.getContext("2d");
+  ctx.font = "bold 160px Arial";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillStyle = color;
+  ctx.fillText(text, 128, 128);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  const material = new THREE.SpriteMaterial({
+    map: texture,
+    transparent: true,
+    depthTest: false
+  });
+
+  const label = new THREE.Sprite(material);
+  label.position.set(x, y, z);
+  label.scale.set(3, 3, 1);
+  scene.add(label);
+}
+
+// XYZ 軸線終點的文字標籤
+createAxisLabel("X", "#ff4444", -1.5, -8, -10);
+createAxisLabel("Y", "#44ff44", -15, 5.5, -10);
+createAxisLabel("Z", "#4488ff", -15, -8, 3.5);
 fetch("./co2_data.json")
 .then(r => {
   if (!r.ok) throw new Error("JSON 載入失敗");
